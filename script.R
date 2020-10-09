@@ -43,4 +43,4 @@ df2 %>%
     theme_minimal() +
     theme(text = element_text(size=18))
 
-ggsave("textbookprices.pdf")
+ggsave("textbookprices.png", width = 12, height = 8)
