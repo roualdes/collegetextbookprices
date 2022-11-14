@@ -2,6 +2,7 @@ library(dplyr)
 library(readr)
 library(stringr)
 library(lubridate)
+library(forcats)
 library(ggplot2)
 
 
@@ -28,12 +29,12 @@ df2 <- df %>%
     mutate(month = month(period(month = str_match(period, "[\\d]{2}"), units = "month"))) %>%
     filter(month < 13) %>%
     mutate(Date = ymd(paste(year, month, "01", sep="-")),
-           Series = factor(series_id,
-                           labels = c("Housing",
-                                      "Medical care",
-                                      "Recreational books",
-                                      "College textbooks",
-                                      "CPI (no energy)")))
+           Series = fct_recode(series_id,
+                               "Housing" = "CUUR0000SAH",
+                               "Medical care" = "CUUR0000SAM",
+                               "Recreational books" = "CUUR0000SERG02",
+                               "College textbooks" = "CUUR0000SSEA011",
+                               "CPI (no energy)" = "CUUR0000SA0LE"))
 
 
 df2 %>%
