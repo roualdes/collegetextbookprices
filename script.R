@@ -43,7 +43,8 @@ df2 %>%
     mutate(pchange = 100 * (value / value[1] - 1)) %>%
     ggplot(aes(Date, pchange, color = Series)) +
     geom_line(size = 1.5) +
-    labs(y = "Percent change from 2002") +
+    labs(y = "Percent change from 2002",
+         caption = "github.com/roualdes/collegetextbookprices; License: BSD-3; Data source: bls.gov") +
     theme_minimal() +
     theme(text = element_text(size=18))
 
