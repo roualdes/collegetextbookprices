@@ -44,7 +44,7 @@ df2 %>%
     ggplot(aes(Date, pchange, color = Series)) +
     geom_line(size = 1.5) +
     labs(y = "Percent change from 2002",
-         caption = "github.com/roualdes/collegetextbookprices; License: BSD-3; Data source: bls.gov") +
+         caption = "github.com/roualdes/collegetextbookprices License: BSD-3 Data source: bls.gov") +
     theme_minimal() +
     theme(text = element_text(size=18))
 
