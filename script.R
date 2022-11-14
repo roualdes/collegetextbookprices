@@ -5,9 +5,10 @@ library(lubridate)
 library(ggplot2)
 
 
-## Download
-## https://download.bls.gov/pub/time.series/cu/
-## cu.data.0.Current
+## Data taken from
+## https://download.bls.gov/pub/time.series/cu/cu.data.0.Current
+## script will download, but not save the data to file
+## Glossary
 ## https://www.bls.gov/cex/csxgloss.htm
 
 ## CUSR0000SAH => Housing
@@ -16,10 +17,11 @@ library(ggplot2)
 ## CUUR0000SSEA011 => College textbooks
 ## CUURD000SA0LE => CPI (everything but energy)
 
-
 wdths <- fwf_widths(c(17, 4, 3, 12, 10)+1,
                     col_names = c("series_id", "year", "period", "value", "footnotes"))
-df <- read_fwf("https://download.bls.gov/pub/time.series/cu/cu.data.0.Current", col_positions = wdths, skip = 1)
+df <- read_fwf("https://download.bls.gov/pub/time.series/cu/cu.data.0.Current",
+               col_positions = wdths,
+               skip = 1)
 
 
 df2 <- df %>%
